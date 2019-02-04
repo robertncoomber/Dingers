@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 9ee23c57498fb764b8d8575355f9ee9d
+timeCreated: 1549250378
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mermaid
+  fontNames:
+  - Mermaid
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
