@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4411985236184740}
   - component: {fileID: 33524965931768720}
   - component: {fileID: 23188630538652236}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBA1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4357946249003528}
   - component: {fileID: 33442501635514072}
   - component: {fileID: 23354408909597070}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBA2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 114441875995389702}
   - component: {fileID: 82901128236359314}
   - component: {fileID: 82526997520823052}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: New Baseball
   m_TagString: ball
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4975987103571820}
   - component: {fileID: 33464568722404898}
   - component: {fileID: 23229712060405524}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

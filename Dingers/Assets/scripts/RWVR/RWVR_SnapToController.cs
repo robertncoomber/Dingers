@@ -19,6 +19,21 @@ public class RWVR_SnapToController : RWVR_InteractionObject
 
     private void ConnectToController(RWVR_InteractionController controller)
     {
+        //cachedTransform.SetParent(controller.transform);
+
+        FixedJoint fx = controller.gameObject.AddComponent<FixedJoint>();
+        fx.breakForce = 20000;
+        fx.breakTorque = 20000;
+        fx.connectedBody = rb;
+
+        cachedTransform.rotation = controller.transform.rotation;
+        cachedTransform.Rotate(snapRotationOffset);
+        cachedTransform.position = controller.snapColliderOrigin.position;
+        cachedTransform.Translate(snapPositionOffset, Space.Self);
+
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        /*
         cachedTransform.SetParent(controller.transform);
 
         cachedTransform.rotation = controller.transform.rotation;
@@ -28,6 +43,7 @@ public class RWVR_SnapToController : RWVR_InteractionObject
 
         rb.useGravity = false;
         rb.isKinematic = true;
+        */
     }
 
     private void ReleaseFromController(RWVR_InteractionController controller)

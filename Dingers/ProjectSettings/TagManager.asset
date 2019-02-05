@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wallbackstop
+  - lights
+  - Homerun
+  - walloutfield
+  - fieldmodel
+  - Inplay
+  - ground
+  - light
+  - Foul
+  - double
+  - Strike
+  - ball
+  - InteractionObject
+  - Bat
   layers:
   - Default
   - TransparentFX
@@ -13,8 +27,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Bat
+  - Ground
   - 
   - 
   - 
