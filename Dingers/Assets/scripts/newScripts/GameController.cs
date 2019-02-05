@@ -9,17 +9,14 @@ public class GameController : MonoBehaviour {
     [Range(.1f, 5f)]
     public float pitchInterval;
     public BallSpawner ballSpawner;
-    public Slider slider;
 
     private void Awake()
     {
         Game.intervalSpeed = pitchInterval;
     }
-
-    // Use this for initialization
+    
     void Start ()
     {
-        //Game.isPlaying = true;
         Game.ballsLeft = ballStart;
 	}
     
@@ -31,6 +28,7 @@ public class GameController : MonoBehaviour {
 
     public void Restart()
     {
+        Game.score = 0;
         Game.isPlaying = true;
         Game.ballsLeft = ballStart;
         ballSpawner.StartSpawn();

@@ -122,6 +122,13 @@ namespace IndiePixel.VR
             if(OnClick != null)
             {
                 OnClick.Invoke(currentMenuID);
+                
+                if(currentMenuID == 0 || currentMenuID == 4) // checks if chosen button cause menu fade
+                {
+                    menuOpen = false;
+                    HandleAnimator();
+                }
+
             }
         }
 
@@ -134,11 +141,7 @@ namespace IndiePixel.VR
 
             menuOpen = !menuOpen;
 
-            HandleDebugText("Menu is: " + menuOpen);
-
             HandleAnimator();
-
-            
         }
 
         void HandleAnimator()

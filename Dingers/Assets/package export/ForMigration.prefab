@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4416539222106522}
   - component: {fileID: 33947399962447234}
   - component: {fileID: 23371573298526876}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBA1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,14 +786,14 @@ GameObject:
   - component: {fileID: 135737413443901240}
   - component: {fileID: 114059996726985916}
   - component: {fileID: 114136619243436754}
+  - component: {fileID: 114137644362068934}
   - component: {fileID: 82230324599363276}
   - component: {fileID: 82934326024203502}
   - component: {fileID: 82335003168461542}
   - component: {fileID: 82372378499067180}
-  - component: {fileID: 114137644362068934}
   - component: {fileID: 82225125748365088}
   - component: {fileID: 82337522312244620}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: New Baseball
   m_TagString: ball
   m_Icon: {fileID: 0}
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 4216568464940942}
   - component: {fileID: 33404730969576286}
   - component: {fileID: 23757284122662006}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBA2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2216,7 +2216,7 @@ GameObject:
   - component: {fileID: 4777550103671034}
   - component: {fileID: 33822125528942590}
   - component: {fileID: 23424166904455596}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BASEBALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6405,8 +6405,8 @@ Rigidbody:
   m_GameObject: {fileID: 1356509719111120}
   serializedVersion: 2
   m_Mass: 0.5
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.1
+  m_AngularDrag: 0.08
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -8135,7 +8135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchInterval: 4.36
   ballSpawner: {fileID: 114874285188239572}
-  slider: {fileID: 0}
 --- !u!114 &114183880063299304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11979,7 +11978,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1601584749
+  randomSeed: -326394945
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15264,7 +15263,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -156574896
+  randomSeed: -1503298578
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -28381,7 +28380,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1679443617
+  randomSeed: 1855623053
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -28428,9 +28427,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 12.2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 15.39
+      minScalar: 11.46
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -28469,38 +28468,38 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      minMaxState: 1
+      minColor: {r: 0.07586217, g: 1, b: 0, a: 1}
+      maxColor: {r: 0, g: 0.04827571, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0.15294118, g: 0.64705884, b: 0.9921569, a: 1}
+        key1: {r: 0.57596374, g: 0.16911763, b: 1, a: 0.7735294}
+        key2: {r: 0.45557818, g: 0.35294116, b: 1, a: 0.5470615}
+        key3: {r: 0.15327641, g: 0.6453211, b: 0.99264705, a: 0}
+        key4: {r: 1, g: 1, b: 1, a: 0}
+        key5: {r: 1, g: 1, b: 1, a: 0}
+        key6: {r: 1, g: 1, b: 1, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
+        ctime1: 15227
+        ctime2: 30069
+        ctime3: 40670
+        ctime4: 65535
+        ctime5: 53199
+        ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
-        atime3: 0
+        atime1: 14842
+        atime2: 29684
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumColorKeys: 5
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -28782,8 +28781,8 @@ ParticleSystem:
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.14
+      minMaxState: 3
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -28824,7 +28823,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 4
+    type: 0
     angle: 90
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -29023,8 +29022,8 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - time: 0
-      minCount: 10
-      maxCount: 20
+      minCount: 30
+      maxCount: 100
       cycleCount: 1
       repeatInterval: 0.01
   SizeModule:
@@ -31087,7 +31086,7 @@ ParticleSystem:
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 198
         ctime1: 65535
         ctime2: 0
         ctime3: 0
@@ -31654,7 +31653,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -567772383
+  randomSeed: -305443722
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -38190,7 +38189,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -269841135
+  randomSeed: -303761746
   InitialModule:
     serializedVersion: 3
     enabled: 1
