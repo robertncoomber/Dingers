@@ -36,6 +36,7 @@ public class BallSpawner : MonoBehaviour {
             }
             else
             {
+                Game.gameHasEnded = true;
                 CancelInvoke();// out of balls
             }
         }

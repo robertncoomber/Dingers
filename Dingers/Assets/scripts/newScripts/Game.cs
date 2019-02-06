@@ -8,6 +8,6 @@ public static class Game  {
     public static int ballsLeft;
     public static float score;
     public static float intervalSpeed;
-    
+    public static bool gameHasEnded;
 
 }

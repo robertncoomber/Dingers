@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 
     private void Awake()
     {
+        print(Game.gameHasEnded);
         Game.intervalSpeed = pitchInterval;
     }
     
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour {
 
     public void Restart()
     {
+        CleanBalls();
         Game.score = 0;
         Game.isPlaying = true;
         Game.ballsLeft = ballStart;
@@ -36,8 +38,17 @@ public class GameController : MonoBehaviour {
 
     public void Play()
     {
-        Game.isPlaying = true;
-        ballSpawner.StartSpawn();
+        if(Game.gameHasEnded)
+        {
+            Restart();
+            Game.gameHasEnded = false;
+        }
+        else
+        {
+            Game.isPlaying = true;
+            ballSpawner.StartSpawn();
+        }
+        
     }
 
     public void CleanBalls()
