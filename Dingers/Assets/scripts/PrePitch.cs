@@ -30,7 +30,7 @@ public class PrePitch : MonoBehaviour {
         source = GetComponent<AudioSource>();
         child = GameObject.Find("light bulb");
 
-        Debug.Log("interval time: "+ Game.intervalSpeed + " red start: " + redStartTime + " green time: " + greenTime + " red time: " + redTime);
+        //Debug.Log("interval time: "+ Game.intervalSpeed + " red start: " + redStartTime + " green time: " + greenTime + " red time: " + redTime);
     }
 
 

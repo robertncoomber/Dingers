@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public static int ballStart = 20;
+    public int ballStart = 20;
     [Range(.1f, 5f)]
     public float pitchInterval;
     public BallSpawner ballSpawner;
 
     private void Awake()
     {
-        print(Game.gameHasEnded);
         Game.intervalSpeed = pitchInterval;
     }
     
@@ -49,6 +48,11 @@ public class GameController : MonoBehaviour {
             ballSpawner.StartSpawn();
         }
         
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game is Over");
     }
 
     public void CleanBalls()

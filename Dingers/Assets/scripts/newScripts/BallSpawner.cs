@@ -7,6 +7,8 @@ public class BallSpawner : MonoBehaviour {
     ObjectPooler objectPooler;
     GameObject prePitch;
 
+    public GameController gameController; // used to trigger game end function
+
     private void Start()
     {
         prePitch = GameObject.Find("pitching light");
@@ -36,6 +38,7 @@ public class BallSpawner : MonoBehaviour {
             }
             else
             {
+                gameController.Invoke("GameOver", Game.intervalSpeed - 1.5f);
                 Game.gameHasEnded = true;
                 CancelInvoke();// out of balls
             }
