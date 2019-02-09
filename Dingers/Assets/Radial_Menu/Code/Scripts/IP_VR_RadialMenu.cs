@@ -128,7 +128,6 @@ namespace IndiePixel.VR
                     menuOpen = false;
                     HandleAnimator();
                 }
-
             }
         }
 
@@ -140,7 +139,6 @@ namespace IndiePixel.VR
             }
 
             menuOpen = !menuOpen;
-
             HandleAnimator();
         }
 
