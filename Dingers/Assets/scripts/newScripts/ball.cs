@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This Script controls the balls state and the ball logic while it is in play
+
 public class ball : MonoBehaviour, IPooledObjects {
     
-    public float pitchSpeed = 8f;
+    public float pitchSpeed;
+    BallAnimation ballAnimation;
 
+    private void Awake()
+    {
+        ballAnimation = GetComponent<BallAnimation>();
+    }
 
     public class BallStats
     {
-        public bool contact, strike, inPlay, foul, homeRun;
+        public bool contact, strike, inPlay, foul, homeRun; // current state of ball
 
         public BallStats(bool contact)
         {
@@ -19,14 +26,10 @@ public class ball : MonoBehaviour, IPooledObjects {
 
     public BallStats bs = new BallStats(false);
 
-	// Use this for initialization
-	public void OnObjectSpawn () {
-
-        //gameObject.transform.Rotate(0, 45f, 0)
+    // When the each ball is being spawned into the scene
+	public void OnObjectSpawn () { 
 
         Rigidbody rb = new Rigidbody();
-
-
         rb = GetComponent<Rigidbody>();
 
         rb.transform.Rotate(-30f, Random.Range(133f, 137f), 0);
@@ -59,9 +62,12 @@ public class ball : MonoBehaviour, IPooledObjects {
                     bs.homeRun = true;
                     break;
                 }
+
                 bs.homeRun = true;
-                Game.score += 3; // only result is homerun.
+                ballAnimation.HomeRun();
+                Game.score += 3;
                 break;
+
             case "Foul":
                 if ( bs.foul || bs.strike || bs.inPlay || bs.homeRun)
                     break;
@@ -69,20 +75,24 @@ public class ball : MonoBehaviour, IPooledObjects {
                 bs.foul = true;
                 bs.strike = true;
                 break;
+
             case "Bat": // make sure its a fresh ball
-                if ( bs.strike || bs.foul || bs.inPlay || bs.homeRun ) 
+                if ( bs.strike || bs.foul || bs.inPlay || bs.homeRun || bs.contact ) 
                     break;
 
                 bs.contact = true;
                 break;
+
             case "Inplay": // check to make sure only contact had been made
                 if (bs.strike || bs.foul || bs.homeRun || bs.inPlay || !bs.contact)
                     break;
-                
+
                 bs.inPlay = true;
                 Game.score += 1;
+                ballAnimation.InPlay();
                 Debug.Log("Inplay Score is: " + Game.score);
                 break;
+
             case "Strike":
                 if (bs.contact || bs.strike || bs.foul || bs.homeRun || bs.inPlay) // foul ball
                     break;
@@ -92,6 +102,7 @@ public class ball : MonoBehaviour, IPooledObjects {
                     Game.score -= 1;
                     break;
                 }
+
             default: // non point scoring surface was touched
                 break;
         }

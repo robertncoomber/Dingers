@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 54143128339043956}
   - component: {fileID: 135996049495202206}
   - component: {fileID: 114330904790529276}
-  - component: {fileID: 114663587630745346}
   - component: {fileID: 82468857045015770}
   - component: {fileID: 82358005680555740}
   - component: {fileID: 82726903995511620}
@@ -132,6 +131,7 @@ GameObject:
   - component: {fileID: 114441875995389702}
   - component: {fileID: 82901128236359314}
   - component: {fileID: 82526997520823052}
+  - component: {fileID: 114580972703415836}
   m_Layer: 0
   m_Name: New Baseball
   m_TagString: ball
@@ -936,8 +936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec4358091f8c1847994abd2ceac2d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchSpeed: 7.2
---- !u!114 &114663587630745346
+  pitchSpeed: 7.76
+--- !u!114 &114580972703415836
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -945,19 +945,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664573814911374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d04a92d1854fcf641818b8105773e6dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a96f6368f8f7f045b532bf3733e11f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firework:
   - {fileID: 198209183817476152}
-  - {fileID: 198209183817476152}
-  - {fileID: 198209183817476152}
-  - {fileID: 198209183817476152}
   fireworkSource: {fileID: 82468857045015770}
   inPlay: {fileID: 198408793809686376}
   coinPlus1Source: {fileID: 82378610958581456}
-  myBall: {fileID: 0}
-  ballInPlay: 0
 --- !u!135 &135996049495202206
 SphereCollider:
   m_ObjectHideFlags: 1
