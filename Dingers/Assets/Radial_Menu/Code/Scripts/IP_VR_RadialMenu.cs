@@ -88,8 +88,7 @@ namespace IndiePixel.VR
                 OnClick.RemoveAllListeners();
             }
         }
-    	
-    	// Update is called once per frame
+
     	void Update () 
         {
             if(controllerDevice != null)
@@ -107,19 +106,22 @@ namespace IndiePixel.VR
         void HandlePadTouched(object sender, ClickedEventArgs e)
         {
             isTouching = true;
-//            HandleDebugText("Touched Pad");
         }
 
         void HandlePadUnTouched(object sender, ClickedEventArgs e)
         {
             isTouching = false;
-//            HandleDebugText("Un Touched Pad");
         }
 
         void HandlePadClicked(object sender, ClickedEventArgs e)
         {
-//            HandleDebugText("Clicked Pad");
-            if(OnClick != null)
+            if (!menuOpen) // open main menu
+            {
+                Game.isPlaying = false;
+                menuOpen = true;
+                HandleAnimator();
+            }
+            else if (OnClick != null)
             {
                 OnClick.Invoke(currentMenuID);
                 
@@ -130,16 +132,13 @@ namespace IndiePixel.VR
                 }
             }
         }
-
+        
+        // This piece of code detects when the menu button is clicked.
+        // It sets is open to true and pauses the game. It also runs the
+        // HandleAnimator function to run the animation.
         void HandleMenuActivation(object sender, ClickedEventArgs e)
         {
-            if(!menuOpen)
-            {
-                Game.isPlaying = false;
-            }
-
-            menuOpen = !menuOpen;
-            HandleAnimator();
+            
         }
 
         void HandleAnimator()
@@ -150,6 +149,8 @@ namespace IndiePixel.VR
             }
         }
 
+        // In update if is touching is true, this is ran once per update
+        // It takes the touch angle and coverts it to the int updateMenuID
         void UpdateMenu()
         {
             if(isTouching)
@@ -157,16 +158,13 @@ namespace IndiePixel.VR
                 //Get the Current Axis from the Touch Pad and turn it into and Angle
                 currentAxis = controllerDevice.GetAxis();
                 currentAngle = Vector2.SignedAngle(Vector2.up, currentAxis);
-
-//                HandleDebugText(currentAngle.ToString());
+                
                 float menuAngle = currentAngle;
                 if(menuAngle < 0)
                 {
                     menuAngle += 360f;
                 }
                 int updateMenuID = (int)(menuAngle / (360f / 4f));
-                HandleDebugText(updateMenuID.ToString());
-
 
                 //Update Current Menu ID
                 if(updateMenuID != currentMenuID)
