@@ -13,8 +13,6 @@ namespace IndiePixel.VR
         #region Variables
         [Header("Button Properties")]
         public int buttonID;
-        public string buttonText;
-        public Image buttonIcon;
         public Sprite normalImage;
         public Sprite hoverImage;
 
@@ -39,7 +37,7 @@ namespace IndiePixel.VR
     	}
         #endregion
 
-
+        // Changes the button image 
         #region Custom Methods
         public void Hover(int anID)
         {
