@@ -1,10 +1,10 @@
-#Dingers VR Homerun Derby 
+# Dingers VR Homerun Derby 
 
-##Virtual Reality Baseball Game 
+## Virtual Reality Baseball Game 
 
-######Developed for SteamVR using Unity 2017.1.1fd
+##### Developed for SteamVR using Unity 2017.1.1fd
 
-#######First read me with updated ui
+###### First read me with updated ui
 
 Dingers VR is a arcade style batting game. The current game mode is Homerun Derby. 
 
