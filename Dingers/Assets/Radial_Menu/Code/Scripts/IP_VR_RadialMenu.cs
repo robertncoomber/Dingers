@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace IndiePixel.VR
+namespace Rob.VR
 {
     public class onHover : UnityEvent<int>{}
     public class onClick : UnityEvent<int>{}
@@ -18,7 +18,8 @@ namespace IndiePixel.VR
         public SteamVR_TrackedController controller;
 
         [Header("UI Properties")]
-        public List<IP_VR_MenuButton> menuButtons = new List<IP_VR_MenuButton>();
+        public List<MenuGroup> menuGroups = new List<MenuGroup>();
+        //public List<IP_VR_MenuButton> menuButtons = new List<IP_VR_MenuButton>();
         public RectTransform m_ArrowContainer;
         public Text m_DebugText;
 
@@ -58,12 +59,16 @@ namespace IndiePixel.VR
                 controller.MenuButtonClicked += HandleMenuActivation;
             }
 
-            if(menuButtons.Count > 0)
+            
+            for(int i = 0; i <menuGroups.Count; i++)
             {
-                foreach(var button in menuButtons)
+                if (menuGroups[i].menuButtons.Count > 0)
                 {
-                    OnHover.AddListener(button.Hover);
-                    OnClick.AddListener(button.Click);
+                    foreach (var button in menuGroups[i].menuButtons)
+                    {
+                        OnHover.AddListener(button.Hover);
+                        OnClick.AddListener(button.Click);
+                    }
                 }
             }
     	}

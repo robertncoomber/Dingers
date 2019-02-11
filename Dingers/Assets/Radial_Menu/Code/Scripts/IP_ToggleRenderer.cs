@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IndiePixel.VR
-{
+namespace Rob.VR
+{ 
     [RequireComponent(typeof(MeshRenderer))]
     public class IP_ToggleRenderer : MonoBehaviour 
     {
