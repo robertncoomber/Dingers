@@ -4,6 +4,9 @@ newmtl mat10
 newmtl mat19
   Kd 0.87 0.60 0.27
 
+newmtl mat21
+  Kd 1.00 1.00 1.00
+
 newmtl mat5
   Kd 0.01 0.61 0.90
 
@@ -19,9 +22,6 @@ newmtl mat24
   d 0.4
   Ni 1.5
 
-newmtl mat21
-  Kd 1.00 1.00 1.00
-
 newmtl mat20
   Kd 0.47 0.33 0.28
 
@@ -36,4 +36,10 @@ newmtl mat6
 
 newmtl mat22
   Kd 0.62 0.62 0.62
+
+newmtl mat12
+  Kd 1.00 0.92 0.23
+
+newmtl mat16
+  Kd 0.47 0.56 0.61
 
