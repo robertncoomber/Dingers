@@ -169,7 +169,7 @@ namespace Rob.VR
                 {
                     menuAngle += 360f;
                 }
-                int updateMenuID = (int)(menuAngle / (360f / 4f));
+                int updateMenuID = (int)(menuAngle / (360f / (menuGroups[0].menuButtons).Count));
 
                 //Update Current Menu ID
                 if(updateMenuID != currentMenuID)
