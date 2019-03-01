@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Rob.VR
 {
     public class onHover : UnityEvent<int>{}
-    public class onClick : UnityEvent<int>{}
+    public class onClick : UnityEvent<int,int>{}
 
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(CanvasGroup))]
@@ -38,6 +38,7 @@ namespace Rob.VR
 
         private int currentMenuID = -1;
         private int previousMenuID = -1;
+        private int currentMenuGroupID = 0;
 
         private onHover OnHover = new onHover();
         private onClick OnClick = new onClick();
@@ -124,13 +125,14 @@ namespace Rob.VR
             {
                 Game.isPlaying = false;
                 menuOpen = true;
+                currentMenuGroupID = 0;
                 HandleAnimator();
             }
             else if (OnClick != null)
             {
-                OnClick.Invoke(currentMenuID);
+                OnClick.Invoke(currentMenuID, currentMenuGroupID);
                 
-                if(currentMenuID == 0 || currentMenuID == 3) // checks if chosen button cause menu fade
+                if(currentMenuGroupID == 0 && currentMenuID == 0 || currentMenuID == 4) // checks if chosen button cause menu fade <-- && currentGroupMenuID == 0
                 {
                     menuOpen = false;
                     HandleAnimator();
@@ -188,7 +190,6 @@ namespace Rob.VR
                     currentMenuID = updateMenuID;
                 }
 
-
                 //Rotate Arrow
                 if(m_ArrowContainer)
                 {
@@ -203,6 +204,13 @@ namespace Rob.VR
             {
                 //m_DebugText.text = aString;
             }
+        }
+
+        public void UpdateCurrentMenuGroup(int updatedID)
+        {
+            currentMenuGroupID = updatedID;
+
+            Debug.Log(currentMenuGroupID);
         }
         #endregion
     }

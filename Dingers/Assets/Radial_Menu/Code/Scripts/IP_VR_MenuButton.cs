@@ -66,9 +66,9 @@ namespace Rob.VR
             }
         }
 
-        public void Click(int anID)
+        public void Click(int anID, int aGroupMenuID)
         {
-            if(buttonID == anID)
+            if(buttonID == anID && aGroupMenuID == parentID) 
             {
                 if(OnClick != null)
                 {
