@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace IndiePixel.VR
+namespace Rob.VR
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Image))]
@@ -16,6 +16,9 @@ namespace IndiePixel.VR
         public Sprite normalImage;
         public Sprite hoverImage;
 
+        public MenuGroup menuGroup;
+        public int parentID;
+
         [Header("Events")]
         public UnityEvent OnClick = new UnityEvent();
 
@@ -25,8 +28,14 @@ namespace IndiePixel.VR
 
 
         #region Main Methods
-    	// Use this for initialization
-    	void Start () 
+
+        private void Awake()
+        {
+            parentID = menuGroup.menuID;
+        }
+
+        // Use this for initialization
+        void Start () 
         {
             animator = GetComponent<Animator>();
             currentImage = GetComponent<Image>();

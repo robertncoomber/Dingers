@@ -10,6 +10,8 @@ public class BallAnimation : MonoBehaviour {
     public ParticleSystem inPlay;
     public AudioSource coinPlus1Source;
 
+    public ParticleSystem hitFrame;
+
     public void HomeRun()
     {
         int rand = Random.Range(0, firework.Length-1);
@@ -22,4 +24,10 @@ public class BallAnimation : MonoBehaviour {
         inPlay.Play();
         coinPlus1Source.Play();
     }
+
+    public void HitFrame()
+    {
+        hitFrame.Play();
+    }
+
 }

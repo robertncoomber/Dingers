@@ -81,6 +81,7 @@ public class ball : MonoBehaviour, IPooledObjects {
                     break;
 
                 bs.contact = true;
+                ballAnimation.HitFrame();
                 break;
 
             case "Inplay": // check to make sure only contact had been made
