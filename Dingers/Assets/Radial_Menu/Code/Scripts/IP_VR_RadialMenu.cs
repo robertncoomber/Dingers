@@ -132,7 +132,7 @@ namespace Rob.VR
             {
                 OnClick.Invoke(currentMenuID, currentMenuGroupID);
                 
-                if(currentMenuGroupID == 0 && currentMenuID == 0 || currentMenuID == 4) // checks if chosen button cause menu fade <-- && currentGroupMenuID == 0
+                if(currentMenuGroupID == 0 && (currentMenuID == 0 || currentMenuID == 4)) // checks if chosen button cause menu fade <-- && currentGroupMenuID == 0
                 {
                     menuOpen = false;
                     HandleAnimator();
@@ -171,7 +171,7 @@ namespace Rob.VR
                 {
                     menuAngle += 360f;
                 }
-                int updateMenuID = (int)(menuAngle / (360f / (menuGroups[0].menuButtons).Count));
+                int updateMenuID = (int)(menuAngle / (360f / (menuGroups[currentMenuGroupID].menuButtons).Count));
 
                 //Update Current Menu ID
                 if(updateMenuID != currentMenuID)
