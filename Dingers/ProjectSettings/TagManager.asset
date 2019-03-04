@@ -18,6 +18,7 @@ TagManager:
   - ball
   - InteractionObject
   - Bat
+  - SpecialZone
   layers:
   - Default
   - TransparentFX

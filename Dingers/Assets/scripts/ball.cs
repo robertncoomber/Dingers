@@ -40,16 +40,16 @@ public class ball : MonoBehaviour, IPooledObjects {
     private void OnTriggerEnter(Collider other)
     {
         string tag = other.tag;
-        BallLogic(tag);   
+        BallLogic(tag, other.gameObject);   
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
-        BallLogic(tag);
+        BallLogic(tag, collision.gameObject);
     }
 
-    public void BallLogic(string tag)
+    public void BallLogic(string tag, GameObject zone)
     {
         switch (tag) // checks which tag the ball interacts with. 
         {
@@ -104,6 +104,14 @@ public class ball : MonoBehaviour, IPooledObjects {
                     break;
                 }
 
+            case "SpecialZone":
+                if (bs.homeRun || bs.foul || bs.strike || !bs.contact)
+                    break;
+
+                ballAnimation.SpecialZone();
+                Game.score += zone.GetComponent<SpecialZone>().addPoints;
+                bs.homeRun = true;
+                break;
             default: // non point scoring surface was touched
                 break;
         }

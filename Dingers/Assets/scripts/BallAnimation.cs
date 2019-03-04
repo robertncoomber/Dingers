@@ -12,6 +12,8 @@ public class BallAnimation : MonoBehaviour {
 
     public ParticleSystem hitFrame;
 
+    public AudioSource specialZoneSound;
+
     public void HomeRun()
     {
         int rand = Random.Range(0, firework.Length-1);
@@ -28,6 +30,11 @@ public class BallAnimation : MonoBehaviour {
     public void HitFrame()
     {
         hitFrame.Play();
+    }
+
+    public void SpecialZone()
+    {
+        specialZoneSound.Play();
     }
 
 }
