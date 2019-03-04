@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bat neon
+  m_Name: bat purple
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -76,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.83448267, b: 1, a: 1}
+    - _Color: {r: 0.6043357, g: 0.41441393, b: 0.77205884, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.73443735, g: 0.14743729, b: 0.74264705, a: 1}
+    - _SpecColor: {r: 0.36011067, g: 0.18847318, b: 0.6102941, a: 1}

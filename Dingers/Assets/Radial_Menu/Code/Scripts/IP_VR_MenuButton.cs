@@ -17,7 +17,7 @@ namespace Rob.VR
         public Sprite hoverImage;
 
         public MenuGroup menuGroup;
-        public int parentID;
+        private int parentID;
 
         [Header("Events")]
         public UnityEvent OnClick = new UnityEvent();
@@ -31,7 +31,8 @@ namespace Rob.VR
 
         private void Awake()
         {
-            parentID = menuGroup.menuID;
+            //parentID = menuGroup.menuID;
+            parentID = GetComponentInParent<MenuGroup>().menuID;
         }
 
         // Use this for initialization
@@ -65,9 +66,9 @@ namespace Rob.VR
             }
         }
 
-        public void Click(int anID)
+        public void Click(int anID, int aGroupMenuID)
         {
-            if(buttonID == anID)
+            if(buttonID == anID && aGroupMenuID == parentID) 
             {
                 if(OnClick != null)
                 {
