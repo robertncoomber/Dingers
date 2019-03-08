@@ -11,5 +11,5 @@ public class Bat : MonoBehaviour{
     public string nickName;
     public Material batMaterial;
     public PhysicMaterial batPhysicsMaterial;
-    
+    public AudioSource batSound;
 }

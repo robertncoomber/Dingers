@@ -6,7 +6,6 @@ public class BallSoundController : MonoBehaviour {
 
 	public AudioSource hitBall;
 	private float relativeVelocity;
-	public AudioClip bat;
 	public AudioClip ground;
 	public AudioClip wall;
 
@@ -21,7 +20,7 @@ public class BallSoundController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-
+        /*
 		if (collision.gameObject.CompareTag ("Bat")) {
 			hitBall.clip = bat;
 			relativeVelocity = collision.impulse.magnitude;
@@ -29,6 +28,7 @@ public class BallSoundController : MonoBehaviour {
 			hitBall.volume = volume;
 			hitBall.Play ();
 		}
+        */
 
 		if( collision.gameObject.CompareTag("walloutfield") || collision.gameObject.CompareTag("wallbackstop"))
 			{
