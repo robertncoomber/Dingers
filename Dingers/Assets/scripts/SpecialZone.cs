@@ -10,6 +10,7 @@ public class SpecialZone : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        specialParticle.Play();
+        if(other.tag == "ball")
+            specialParticle.Play();
     }
 }

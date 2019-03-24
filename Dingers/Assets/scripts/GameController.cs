@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour {
     [Range(.1f, 5f)]
     public float pitchInterval;
     public BallSpawner ballSpawner;
+    public Animator ZonesAnim;
+    public Animator MenuAnim;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class GameController : MonoBehaviour {
     public void Pause()
     {
         Game.isPlaying = false;
+        MenuAnim.SetTrigger("PauseMenuFadeIn");
     }
 
     public void Restart()
@@ -44,14 +47,25 @@ public class GameController : MonoBehaviour {
         }
         else
         {
+            ZonesAnim.SetBool("ArcadeIsPlaying", true);
+            MenuAnim.SetTrigger("MainMenuFadeOut");
             Game.isPlaying = true;
             ballSpawner.StartSpawn();
         }
         
     }
 
+    public void StartPractice()
+    {
+        CleanBalls();
+        MenuAnim.Play("MenuFadeOut");
+        Game.isPlaying = true;
+        ballSpawner.StartSpawn();
+    }
+
     public void GameOver()
     {
+        MenuAnim.SetTrigger("RestartMenuFadeIn");
         Debug.Log("Game is Over");
     }
 
@@ -62,6 +76,12 @@ public class GameController : MonoBehaviour {
         {
             ball.SetActive(false);
         }
+    }
+
+    public void MenuButtonPressed()
+    {
+        if (Game.isPlaying == true)
+            Pause();
     }
 
 }

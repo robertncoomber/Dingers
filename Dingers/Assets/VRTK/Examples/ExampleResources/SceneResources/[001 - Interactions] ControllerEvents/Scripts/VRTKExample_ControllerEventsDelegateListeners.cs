@@ -4,6 +4,8 @@
 
     public class VRTKExample_ControllerEventsDelegateListeners : MonoBehaviour
     {
+        public GameController gc;
+
         public enum EventQuickSelect
         {
             Custom,
@@ -560,7 +562,7 @@
         {
             if (buttonTwoButtonEvents)
             {
-                DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "BUTTON TWO", "pressed down", e);
+                gc.MenuButtonPressed();
             }
         }
 
