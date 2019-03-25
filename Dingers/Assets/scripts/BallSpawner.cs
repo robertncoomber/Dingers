@@ -5,13 +5,26 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour {
 
     ObjectPooler objectPooler;
-    GameObject prePitch;
+    //GameObject prePitch;
 
     public GameController gameController; // used to trigger game end function
 
     private void Start()
     {
-        prePitch = GameObject.Find("pitching light");
+        //prePitch = GameObject.Find("pitching light");
+
+        objectPooler = ObjectPooler.Instance;
+    }
+
+    public void SpawnBall()
+    {
+        objectPooler.SpawnFromPool("ball", transform.position, Quaternion.identity);
+    }
+
+    /*
+    private void Start()
+    {
+        //prePitch = GameObject.Find("pitching light");
 
         objectPooler = ObjectPooler.Instance;
 
@@ -20,7 +33,7 @@ public class BallSpawner : MonoBehaviour {
     
     public void StartSpawn()
     {
-        prePitch.SendMessage("isPlaying");
+        //prePitch.SendMessage("isPlaying");
         CancelInvoke();
         InvokeRepeating("SpawnBall", Game.intervalSpeed, Game.intervalSpeed);
     }
@@ -32,7 +45,7 @@ public class BallSpawner : MonoBehaviour {
         {
             if (Game.ballsLeft >= 1)
             {
-                prePitch.SendMessage("BallSpawned");
+                //prePitch.SendMessage("BallSpawned");
                 objectPooler.SpawnFromPool("ball", transform.position, Quaternion.identity);
                 Game.ballsLeft -= 1;
             }
@@ -48,4 +61,5 @@ public class BallSpawner : MonoBehaviour {
             CancelInvoke(); // paused
         }
     }
+    */
 }
