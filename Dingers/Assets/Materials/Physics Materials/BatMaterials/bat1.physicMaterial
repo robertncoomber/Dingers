@@ -8,6 +8,6 @@ PhysicMaterial:
   m_Name: bat1
   dynamicFriction: 0.21
   staticFriction: 0.51
-  bounciness: 0.47
+  bounciness: 0.96
   frictionCombine: 1
   bounceCombine: 1
