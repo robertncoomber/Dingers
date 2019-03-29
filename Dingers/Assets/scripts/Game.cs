@@ -10,4 +10,5 @@ public static class Game  {
     public static float score;
     public static float intervalSpeed;
     public static bool gameHasEnded;
+    public static bool menuIsOpen;
 }

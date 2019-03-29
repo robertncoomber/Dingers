@@ -137,6 +137,7 @@ namespace VRTK
                 actualTracer.GetComponent<BoxCollider>().isTrigger = true;
                 actualTracer.AddComponent<Rigidbody>().isKinematic = true;
                 actualTracer.layer = LayerMask.NameToLayer("Ignore Raycast");
+                actualTracer.tag = "Pointer";
 
                 SetupMaterialRenderer(actualTracer);
             }
@@ -160,6 +161,7 @@ namespace VRTK
                 actualCursor.GetComponent<Collider>().isTrigger = true;
                 actualCursor.AddComponent<Rigidbody>().isKinematic = true;
                 actualCursor.layer = LayerMask.NameToLayer("Ignore Raycast");
+                actualCursor.tag = "Pointer";
 
                 SetupMaterialRenderer(actualCursor);
             }

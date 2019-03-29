@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public BallSpawner ballSpawner;
     public Animator ZonesAnim;
     public Animator MenuAnim;
+    public MenuToggle[] menuToggle;
     
     GameState state;
 
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour {
     {
         if(state == GameState.InGame)
         {
+            CancelInvoke("Toss");
             Game.isPaused = true;
             ballSpawner.CancelInvoke();
             Game.isPlaying = false;
@@ -49,13 +51,8 @@ public class GameController : MonoBehaviour {
         
         if (state == GameState.InGame)
         {
-            MenuAnim.SetTrigger("PauseMenuFadeOut");
+            MenuAnim.SetTrigger("InGameNoMenu");
         }
-        
-
-        
-                MenuAnim.SetTrigger("RestartMenuFadeOut");
-        
 
         StartPitch();
     }
@@ -66,7 +63,7 @@ public class GameController : MonoBehaviour {
         Game.ballsLeft = ballStart;
 
         ZonesAnim.SetBool("ArcadeIsPlaying", true);
-        MenuAnim.SetTrigger("MainMenuFadeOut");
+        MenuAnim.SetTrigger("InGameNoMenu");
         Game.isPlaying = true;
 
         StartPitch();
@@ -75,35 +72,26 @@ public class GameController : MonoBehaviour {
     public void Continue()
     {
         Game.isPlaying = true;
-        MenuAnim.SetTrigger("PauseMenuFadeOut");
+        MenuAnim.SetTrigger("InGameNoMenu");
         StartPitch();
     }
 
     public void Quit()
     {
         Debug.Log("Quit pause is called");
-        MenuAnim.SetTrigger("PauseMenuFadeOut");
-        Invoke("QuitTransition", 1f);
+        MenuAnim.SetTrigger("MainMenu");
         state = GameState.MainMenu;
-    }
-
-    public void RestartQuit()
-    {
-        MenuAnim.SetTrigger("RestartMenuFadeOut");
-        Invoke("QuitTransition", 1f);
-
-        state = GameState.MainMenu;
-    }
-
-    private void QuitTransition()
-    {
-        MenuAnim.SetTrigger("MainMenuFadeIn");
     }
 
     public void GameOver()
     {
         state = GameState.GameOver;
-        MenuAnim.SetTrigger("RestartMenuFadeIn");
+        Game.isPlaying = false;
+        MenuAnim.SetTrigger("GameOverMenu");
+        foreach(MenuToggle menutoggle in menuToggle)
+        {
+            menutoggle.enablePointer();
+        }
     }
 
     public void CleanBalls()
@@ -118,29 +106,33 @@ public class GameController : MonoBehaviour {
     public void MenuButtonPressed()
     {
         if (Game.isPlaying == true)
+        {
+            Game.isPlaying = false;
             Pause();
+            MenuAnim.SetTrigger("PauseMenu");
+        }
     }
 
     public void StartPitch()
     {
         InvokeRepeating("Toss", Game.intervalSpeed,Game.intervalSpeed);
+        Debug.Log("StartPitch is called");
     }
 
     public void Toss()
     {
-        if(Game.ballsLeft > 1 && !Game.isPaused)
+        if(Game.ballsLeft > 1 && Game.isPlaying)
         {
             Game.ballsLeft -= 1;
             ballSpawner.SpawnBall();
         }
-        else if(Game.ballsLeft == 1 && !Game.isPaused)
+        else if(Game.ballsLeft == 1 && Game.isPlaying)
         {
             ballSpawner.SpawnBall();
-            Invoke("GameOver", .1f);
+            Invoke("GameOver", 2.5f);
             Game.ballsLeft = 0;
 
             CancelInvoke("Toss");
         }
-        
     }
 }
