@@ -109,10 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6132ad70d2ad6248a0d0e011fa90f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bats:
-  - {fileID: 2100000, guid: 389548060fe13ae469ef11028fc2013b, type: 2}
-  - {fileID: 2100000, guid: 745293250d1452d4ab8b9454703e160b, type: 2}
-  - {fileID: 2100000, guid: ab6ed832a1fefcf479ca340850f500f7, type: 2}
+  batName: 
+  attribute1: 
+  attribute2: 
+  attribute3: 
+  nickName: 
+  batMaterial: {fileID: 0}
+  batPhysicsMaterial: {fileID: 0}
+  batSound: {fileID: 0}
 --- !u!136 &136686710545427634
 CapsuleCollider:
   m_ObjectHideFlags: 1
