@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     public BallSpawner ballSpawner;
     public Animator ZonesAnim;
     public Animator MenuAnim;
-    public MenuToggle[] menuToggle;
+    public LineRenderer pointer; // whether it be the entire object or just line and 
     
     GameState state;
 
@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour {
     {
         if(state == GameState.InGame)
         {
+            //pointer.setActive(true);
             CancelInvoke("Toss");
             Game.isPaused = true;
             ballSpawner.CancelInvoke();
@@ -55,10 +56,13 @@ public class GameController : MonoBehaviour {
         }
 
         StartPitch();
+
+        //pointer.setActive(false);
     }
 
     public void Play()
     {
+        //pointer.SetActive(false);
         state = GameState.InGame;
         Game.ballsLeft = ballStart;
 
@@ -74,6 +78,7 @@ public class GameController : MonoBehaviour {
         Game.isPlaying = true;
         MenuAnim.SetTrigger("InGameNoMenu");
         StartPitch();
+        //Pointer.SetActive(false);
     }
 
     public void Quit()
@@ -88,10 +93,8 @@ public class GameController : MonoBehaviour {
         state = GameState.GameOver;
         Game.isPlaying = false;
         MenuAnim.SetTrigger("GameOverMenu");
-        foreach(MenuToggle menutoggle in menuToggle)
-        {
-            menutoggle.enablePointer();
-        }
+
+        //pointer.SetActive(true)
     }
 
     public void CleanBalls()
