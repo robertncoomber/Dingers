@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wallbackstop
+  - lights
+  - Homerun
+  - walloutfield
+  - fieldmodel
+  - Inplay
+  - ground
+  - light
+  - Foul
+  - double
+  - Strike
+  - ball
+  - InteractionObject
+  - Bat
+  - SpecialZone
+  - Pointer
   layers:
   - Default
   - TransparentFX
@@ -13,9 +29,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Bat
+  - Ground
+  - Pointer
   - 
   - 
   - 
@@ -40,4 +56,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FieldUI
+    uniqueID: 1227104757
+    locked: 0
+  - name: MenuUI
+    uniqueID: 3281626751
+    locked: 0
+  - name: Pointer
+    uniqueID: 180097485
     locked: 0
