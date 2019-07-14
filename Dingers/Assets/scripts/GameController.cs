@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour {
     [Range(.1f, 5f)]
     public float pitchInterval;
     public BallSpawner ballSpawner;
-    public Animator ZonesAnim;
     public Animator MenuAnim;
     public GameObject pointer; // whether it be the entire object or just line and 
     private Pointer controllerPointer;
@@ -68,8 +67,6 @@ public class GameController : MonoBehaviour {
         //pointer.SetActive(false);
         state = GameState.InGame;
         Game.ballsLeft = ballStart;
-
-        ZonesAnim.SetBool("ArcadeIsPlaying", true);
         MenuAnim.SetTrigger("InGameNoMenu");
         Game.isPlaying = true;
 

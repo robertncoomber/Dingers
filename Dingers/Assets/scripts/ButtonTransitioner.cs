@@ -23,9 +23,7 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("Enter");
-
-        hapticAction.Execute(0, .1f, 150, 75, SteamVR_Input_Sources.RightHand);
+        hapticAction.Execute(0, .01f, 150, 75, SteamVR_Input_Sources.RightHand);
         //m_Image.sprite = hoverImage;
 
         m_Image.color = hoverColor;
@@ -33,8 +31,6 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("Exit");
-
         //m_Image.sprite = normalImage;
 
         m_Image.color = normalColor;
@@ -42,8 +38,6 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("Down");
-
         //m_Image.sprite = downImage;
 
         m_Image.color = downColor;
@@ -51,14 +45,11 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        print("Up");
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        print("Click");
-
-        //m_Image.sprite = hoverImage;
 
         m_Image.color = hoverColor;
     }

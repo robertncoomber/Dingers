@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This Script controls the balls state and the ball logic while it is in play
+//Controls the balls state and the ball logic while it is in play
 
 public class ball : MonoBehaviour, IPooledObjects {
     
@@ -23,7 +23,7 @@ public class ball : MonoBehaviour, IPooledObjects {
             contact = false;
         }
     }
-
+    
     public BallStats bs = new BallStats(false);
 
     // When the each ball is being spawned into the scene

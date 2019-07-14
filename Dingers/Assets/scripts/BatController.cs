@@ -36,8 +36,8 @@ public class BatController : MonoBehaviour
         {
             float relativeVelocity = collision.impulse.magnitude;
             float volume = relativeVelocity / 20;
-            bats[currentBat].batSound.volume = volume;
-            bats[currentBat].batSound.Play();
+            //bats[currentBat].batSound.volume = volume;
+            //bats[currentBat].batSound.Play();
             canHitSound = false;
             Invoke("DoubleHitCheck", 0.5f);
         }
