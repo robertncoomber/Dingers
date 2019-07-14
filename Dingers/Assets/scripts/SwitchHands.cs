@@ -9,10 +9,10 @@ public class SwitchHands : MonoBehaviour {
     public GameObject rightBox;
     private bool isTeleporting = false;
 
-    private bool currentHand = true; //right hand is the true hand
+    private bool currentHand = true; //right hand is the one true hand
     
 
-    public void TryTeleport(bool hand)
+    public void SwitchBattersBox(bool hand)
     {
         if (currentHand == hand)
             return;
