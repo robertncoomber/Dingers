@@ -5,10 +5,6 @@ using Valve.VR;
 
 public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    //public Sprite normalImage;
-    //public Sprite hoverImage;
-    //public Sprite downImage;
-
     public Color32 normalColor;
     public Color32 hoverColor;
     public Color32 downColor;
