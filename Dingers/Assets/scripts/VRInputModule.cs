@@ -11,6 +11,10 @@ public class VRInputModule : BaseInputModule
     public Camera m_Camera;
     public SteamVR_Input_Sources m_TargetSource;
     public SteamVR_Action_Boolean m_ClickAction;
+    public SteamVR_Action_Boolean m_PauseAction;
+
+    [SerializeField]
+    private GameController gameController;
 
     private GameObject m_CurrentObject = null;
     private PointerEventData m_Data = null;
@@ -40,13 +44,17 @@ public class VRInputModule : BaseInputModule
         // Hover 
         HandlePointerExitAndEnter(m_Data, m_CurrentObject);
 
-        // Press
+        // Menu Interact Press
         if (m_ClickAction.GetStateDown(m_TargetSource))
-            ProcessPress(m_Data);
+            ProcessMenuPress(m_Data);
 
-        // Release
+        // Menu Interact Release
         if (m_ClickAction.GetStateUp(m_TargetSource))
-            ProcessRelease(m_Data);
+            ProcessMenuRelease(m_Data);
+
+        // Pause Menu Interact Press
+        if (m_PauseAction.GetStateDown(m_TargetSource))
+            ProcessPausePress();
   
     }
 
@@ -55,7 +63,7 @@ public class VRInputModule : BaseInputModule
         return m_Data;
     }
 
-    private void ProcessPress(PointerEventData data)
+    private void ProcessMenuPress(PointerEventData data)
     {
         // set raycast
         data.pointerPressRaycast = data.pointerCurrentRaycast;
@@ -71,9 +79,12 @@ public class VRInputModule : BaseInputModule
         data.pressPosition = data.position;
         data.pointerPress = newPointerPress;
         data.rawPointerPress = m_CurrentObject;
+
+        //This was in below if statement, called upon release, we want on click...
+        ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerClickHandler);
     }
 
-    private void ProcessRelease(PointerEventData data)
+    private void ProcessMenuRelease(PointerEventData data)
     {
         // Execute Pointer up
         ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerUpHandler);
@@ -84,7 +95,7 @@ public class VRInputModule : BaseInputModule
         // check if actual
         if (data.pointerPress == pointerUpHandler)
         {
-            ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerClickHandler);
+            //ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerClickHandler); // moved above
         }
 
         // clear selected gameObject
@@ -94,5 +105,10 @@ public class VRInputModule : BaseInputModule
         data.pressPosition = Vector2.zero;
         data.pointerPress = null;
         data.rawPointerPress = null;
+    }
+
+    private void ProcessPausePress()
+    {
+        gameController.Pause();
     }
 }

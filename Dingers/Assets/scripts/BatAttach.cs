@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BatAttach : MonoBehaviour {
 
-    private FixedJoint Joint = null;
+    private FixedJoint Joint;
     public Rigidbody Bat;
 
     private void Awake()
     {
         Joint = GetComponent<FixedJoint>();
         Joint.connectedBody = Bat;
+        Joint.enablePreprocessing = false;
     }
 }

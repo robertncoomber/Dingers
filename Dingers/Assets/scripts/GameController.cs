@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 
 public class GameController : MonoBehaviour {
 
@@ -39,7 +40,7 @@ public class GameController : MonoBehaviour {
             Game.isPaused = true;
             ballSpawner.CancelInvoke();
             Game.isPlaying = false;
-            MenuAnim.SetTrigger("PauseMenuFadeIn");
+            MenuAnim.SetTrigger("PauseMenu");
             controllerPointer.ReturnLine();
         }
     }

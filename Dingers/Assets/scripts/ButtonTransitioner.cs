@@ -50,7 +50,6 @@ public class ButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
         m_Image.color = hoverColor;
     }
 
